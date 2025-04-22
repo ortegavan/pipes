@@ -1,59 +1,56 @@
-# Pipes
+# Demonstração de pipes puros e impuros em Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+Este projeto demonstra a diferença entre pipes puros e impuros no Angular através de exemplos práticos.
 
-## Development server
+## Exemplos implementados
 
-To start a local development server, run:
+### Pipe puro: FormatListPipe
 
-```bash
-ng serve
+- Transforma um array em uma string formatada
+- Atualiza apenas quando a referência do array muda
+- Exemplo: converte `['Maçã', 'Banana', 'Laranja']` em "Maçã, Banana e Laranja"
+
+### Pipe impuro: TimeAgoPipe
+
+- Mostra o tempo decorrido desde uma data
+- Atualiza automaticamente a cada segundo
+- Exemplo: converte uma data em "há 5 minutos"
+
+## Como executar
+
+1. Clone o repositório
+2. Instale as dependências com `npm install`
+3. Execute o servidor de desenvolvimento com `ng serve`
+4. Acesse `http://localhost:4200`
+
+## Estrutura do projeto
+
+```
+src/app/
+├── pipes/
+│   ├── format-list.pipe.ts
+│   └── time-ago.pipe.ts
+├── app.component.ts
+├── app.component.html
+└── app.component.scss
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Testando os pipes
 
-## Code scaffolding
+### Pipe puro
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Clique no botão "Adicionar morango"
+- Observe que a lista não atualiza automaticamente
+- O pipe só é executado quando a referência do array muda
 
-```bash
-ng generate component component-name
-```
+### Pipe impuro
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Observe o tempo decorrido atualizando automaticamente
+- Clique em "Atualizar post" para ver o tempo reiniciar
+- O pipe é executado em cada ciclo de detecção de mudanças
 
-```bash
-ng generate --help
-```
+## Aprendizados
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Pipes puros são mais eficientes pois são executados apenas quando necessário
+- Pipes impuros são úteis para dados que mudam frequentemente
+- Escolha o tipo de pipe baseado na frequência de atualização necessária
