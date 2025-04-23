@@ -2,7 +2,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
     name: 'formatList',
-    standalone: true,
 })
 export class FormatListPipe implements PipeTransform {
     transform(items: string[]): string {

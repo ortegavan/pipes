@@ -1,25 +1,21 @@
 import { Component } from '@angular/core';
 import { FormatListPipe } from './pipes/format-list.pipe';
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
-import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-root',
-    standalone: true,
-    imports: [CommonModule, FormatListPipe, TimeAgoPipe],
+    imports: [FormatListPipe, TimeAgoPipe],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-    // Example for pure pipe
-    items: string[] = ['Maçã', 'Banana', 'Laranja'];
+    items: string[] = ['maçã', 'banana', 'laranja'];
 
-    // Example for impure pipe
-    postDate = new Date(new Date().getTime() - 3600000); // 1 hour ago
-    commentDate = new Date(new Date().getTime() - 300000); // 5 minutes ago
+    postDate = new Date(new Date().getTime() - 3600000); // 1 hora atrás
+    commentDate = new Date(new Date().getTime() - 300000); // 5 minutos atrás
 
     addItem() {
-        this.items.push('Morango');
+        this.items.push('morango');
     }
 
     updatePost() {

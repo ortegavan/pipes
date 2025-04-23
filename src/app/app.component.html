@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Demonstração de pipes puros e impuros</h1>
 
-    <section class="pure-pipe">
+    <section>
         <h2>Pipe puro: formatação de lista</h2>
         <p>Lista de frutas: {{ items | formatList }}</p>
         <button (click)="addItem()">Adicionar morango</button>
@@ -11,15 +11,14 @@
         </p>
     </section>
 
-    <section class="impure-pipe">
+    <section>
         <h2>Pipe impuro: tempo decorrido</h2>
-        <div class="post">
+        <div>
             <h3>Post no blog</h3>
             <p>Publicado {{ postDate | timeAgo }}</p>
             <button (click)="updatePost()">Atualizar post</button>
         </div>
-
-        <div class="comment">
+        <div>
             <h3>Comentário</h3>
             <p>Comentado {{ commentDate | timeAgo }}</p>
         </div>

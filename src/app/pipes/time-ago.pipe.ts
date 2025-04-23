@@ -3,19 +3,18 @@ import {
     PipeTransform,
     ChangeDetectorRef,
     OnDestroy,
+    inject,
 } from '@angular/core';
 
 @Pipe({
     name: 'timeAgo',
     pure: false,
-    standalone: true,
 })
 export class TimeAgoPipe implements PipeTransform, OnDestroy {
     private timer: any;
     private lastValue: Date | null = null;
     private lastText = '';
-
-    constructor(private ref: ChangeDetectorRef) {}
+    private ref = inject(ChangeDetectorRef);
 
     transform(value: Date): string {
         if (!value) {
@@ -33,7 +32,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
         if (!this.timer) {
             this.timer = setInterval(() => {
                 this.ref.markForCheck();
-            }, 1000); // Update every second
+            }, 1000); // Atualiza a cada segundo
         }
 
         this.lastText = this.calculateTimeAgo(value);
